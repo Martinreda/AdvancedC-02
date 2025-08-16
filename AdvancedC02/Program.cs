@@ -131,6 +131,19 @@ namespace AdvancedC02
             //Console.WriteLine($"reslut = {result}");
             #endregion
             #endregion
+
+            #region List [Continue]
+            List<int> Numbers = new List<int>() { 1, 2, 3, 4 };
+
+            //Numbers[2] = 100; // Use Indexer As Setter
+            //Console.WriteLine(Numbers[2]); // Use Indexer As Getter
+
+            Numbers[4] = 5; // Use Indexer Fo Adding => invalied
+
+
+            #endregion
+
+
         }
     }
 }
