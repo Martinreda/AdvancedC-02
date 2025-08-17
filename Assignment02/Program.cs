@@ -77,6 +77,33 @@ namespace Assignment02
         }
 
         #endregion
+        #region Q10
+        static void FindSubList(ArrayList arr, int target)
+        {
+            for (int start = 0; start < arr.Count; start++)
+            {
+                int sum = 0;
+                for (int end = start; end < arr.Count; end++)
+                {
+                    sum += (int)arr[end];
+
+                    if (sum == target)
+                    {
+                        Console.Write("[");
+                        for (int k = start; k <= end; k++)
+                        {
+                            Console.Write(arr[k]);
+                            if (k < end) Console.Write(", ");
+                        }
+                        Console.WriteLine("]");
+                      
+                    }
+                }
+            }
+
+            Console.WriteLine("No sub list found");
+        }
+        #endregion
         static void Main(string[] args)
         {
             #region Q01
@@ -234,39 +261,59 @@ namespace Assignment02
             #endregion
 
             #region Q09
-            int[] arr1 = { 1, 2, 3, 4, 4 };
-            int[] arr2 = { 10, 4, 4 };
+            //    int[] arr1 = { 1, 2, 3, 4, 4 };
+            //    int[] arr2 = { 10, 4, 4 };
 
-            List<int> result = FindIntersection(arr1, arr2);
+            //    List<int> result = FindIntersection(arr1, arr2);
 
-            Console.WriteLine("[" + string.Join(", ", result) + "]");
-        }
+            //    Console.WriteLine("[" + string.Join(", ", result) + "]");
+            //}
 
-        static List<int> FindIntersection(int[] arr1, int[] arr2)
-        {
-            List<int> result = new List<int>();
+            //static List<int> FindIntersection(int[] arr1, int[] arr2)
+            //{
+            //    List<int> result = new List<int>();
 
-            
-            Dictionary<int, int> freq = new Dictionary<int, int>();
-            foreach (int num in arr1)
+
+            //    Dictionary<int, int> freq = new Dictionary<int, int>();
+            //    foreach (int num in arr1)
+            //    {
+            //        if (freq.ContainsKey(num))
+            //            freq[num]++;
+            //        else
+            //            freq[num] = 1;
+            //    }
+
+
+            //    foreach (int num in arr2)
+            //    {
+            //        if (freq.ContainsKey(num) && freq[num] > 0)
+            //        {
+            //            result.Add(num);
+            //            freq[num]--; 
+            //        }
+            //    }
+
+            //    return result;
+            #endregion
+
+            #region Q10
+            Console.WriteLine("Enter the number of elements:");
+            int n = int.Parse(Console.ReadLine());
+
+
+            ArrayList arr = new ArrayList();
+            Console.WriteLine("Enter the elements:");
+            for (int i = 0; i < n; i++)
             {
-                if (freq.ContainsKey(num))
-                    freq[num]++;
-                else
-                    freq[num] = 1;
+                arr.Add(int.Parse(Console.ReadLine()));
             }
 
-            
-            foreach (int num in arr2)
-            {
-                if (freq.ContainsKey(num) && freq[num] > 0)
-                {
-                    result.Add(num);
-                    freq[num]--; 
-                }
-            }
+     
+            Console.WriteLine("Enter the target sum:");
+            int target = int.Parse(Console.ReadLine());
 
-            return result;
+
+            FindSubList(arr, target);
             #endregion
         }
     }
