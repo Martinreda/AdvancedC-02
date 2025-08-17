@@ -5,19 +5,19 @@ namespace Assignment02
     internal class Program
     {
         #region Q03 
-        static void ReverseQueue(Queue<int> q)
-        {
-            Stack<int> st = new Stack<int>();
-            while (q.Count > 0)
-            {
-                st.Push(q.Dequeue());
-            }
+        //static void ReverseQueue(Queue<int> q)
+        //{
+        //    Stack<int> st = new Stack<int>();
+        //    while (q.Count > 0)
+        //    {
+        //        st.Push(q.Dequeue());
+        //    }
 
-            while (st.Count > 0)
-            {
-                q.Enqueue(st.Pop());
-            }
-        }
+        //    while (st.Count > 0)
+        //    {
+        //        q.Enqueue(st.Pop());
+        //    }
+        //}
         #endregion
         static void Main(string[] args)
         {
@@ -78,23 +78,60 @@ namespace Assignment02
             #endregion
 
             #region Q03
-            Queue<int> q = new Queue<int>();
-
-            
-            q.Enqueue(10);
-            q.Enqueue(20);
-            q.Enqueue(30);
-            q.Enqueue(40);
-
-            Console.WriteLine("Original Queue: " + string.Join(" ", q));
-
-            ReverseQueue(q);
-
-            Console.WriteLine("Reversed Queue: " + string.Join(" ", q));
-       
-        #endregion
+            //Queue<int> q = new Queue<int>();
 
 
-    }
+            //q.Enqueue(10);
+            //q.Enqueue(20);
+            //q.Enqueue(30);
+            //q.Enqueue(40);
+
+            //Console.WriteLine("Original Queue: " + string.Join(" ", q));
+
+            //ReverseQueue(q);
+
+            //Console.WriteLine("Reversed Queue: " + string.Join(" ", q));
+
+            #endregion
+
+            #region Q04
+            static bool IsBalanced(string str)
+            {
+                Stack<char> st = new Stack<char>();
+
+                foreach (char c in str)
+                {
+                    if (c == '(' || c == '[' || c == '{')
+                    {
+                        st.Push(c);
+                    }
+                    else if (c == ')' || c == ']' || c == '}')
+                    {
+                        if (st.Count == 0) return false; 
+
+                        char top = st.Pop();
+
+                        if ((c == ')' && top != '(') ||
+                            (c == ']' && top != '[') ||
+                            (c == '}' && top != '{'))
+                        {
+                            return false; // mismatch
+                        }
+                    }
+                }
+
+                return st.Count == 0;
+            }
+
+            static void Main()
+            {
+                string input = Console.ReadLine();
+
+                Console.WriteLine(IsBalanced(input) ? "Balanced" : "Not Balanced");
+            }
+            #endregion
+
+
+        }
     }
 }
