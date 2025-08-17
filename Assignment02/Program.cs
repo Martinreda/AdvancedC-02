@@ -4,6 +4,21 @@ namespace Assignment02
 {
     internal class Program
     {
+        #region Q03 
+        static void ReverseQueue(Queue<int> q)
+        {
+            Stack<int> st = new Stack<int>();
+            while (q.Count > 0)
+            {
+                st.Push(q.Dequeue());
+            }
+
+            while (st.Count > 0)
+            {
+                q.Enqueue(st.Pop());
+            }
+        }
+        #endregion
         static void Main(string[] args)
         {
             #region Q01
@@ -12,7 +27,7 @@ namespace Assignment02
             //int n = int.Parse(firstLine[0]);
             //int q = int.Parse(firstLine[1]);
 
-            
+
             //ArrayList arr = new ArrayList();
             //string[] numbers = Console.ReadLine().Split();
             //for (int i = 0; i < n; i++)
@@ -20,7 +35,7 @@ namespace Assignment02
             //    arr.Add(int.Parse(numbers[i]));
             //}
 
-           
+
             //for (int i = 0; i < q; i++)
             //{
             //    int x = int.Parse(Console.ReadLine());
@@ -40,29 +55,46 @@ namespace Assignment02
 
             #region Q02 
 
-            int n = int.Parse(Console.ReadLine());
-            string[] numbers = Console.ReadLine().Split();
+            //int n = int.Parse(Console.ReadLine());
+            //string[] numbers = Console.ReadLine().Split();
 
-            List<int> arr = new List<int>();
+            //List<int> arr = new List<int>();
 
-            
-            for (int i = 0; i < n; i++)
-            {
-                arr.Add(int.Parse(numbers[i]));
-            }
 
-            
-            List<int> reversed = new List<int>(arr);
-            reversed.Reverse();
+            //for (int i = 0; i < n; i++)
+            //{
+            //    arr.Add(int.Parse(numbers[i]));
+            //}
 
-            
-            if (arr.SequenceEqual(reversed))
-                Console.WriteLine("YES");
-            else
-                Console.WriteLine("NO");
+
+            //List<int> reversed = new List<int>(arr);
+            //reversed.Reverse();
+
+
+            //if (arr.SequenceEqual(reversed))
+            //    Console.WriteLine("YES");
+            //else
+            //    Console.WriteLine("NO");
             #endregion
 
+            #region Q03
+            Queue<int> q = new Queue<int>();
 
-        }
+            
+            q.Enqueue(10);
+            q.Enqueue(20);
+            q.Enqueue(30);
+            q.Enqueue(40);
+
+            Console.WriteLine("Original Queue: " + string.Join(" ", q));
+
+            ReverseQueue(q);
+
+            Console.WriteLine("Reversed Queue: " + string.Join(" ", q));
+       
+        #endregion
+
+
+    }
     }
 }
