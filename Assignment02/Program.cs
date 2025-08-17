@@ -181,12 +181,12 @@ namespace Assignment02
             #region Q07
             //Queue<object> queue = new Queue<object>();
 
-        
+
             //queue.Enqueue(1);          
             //queue.Enqueue("Apple");    
             //queue.Enqueue(5.28);       
 
-            
+
             //Console.WriteLine("Queue elements:");
             //foreach (var item in queue)
             //{
@@ -195,42 +195,78 @@ namespace Assignment02
             #endregion
 
             #region Q08
-            Stack<int> stack = new Stack<int>();
+            //Stack<int> stack = new Stack<int>();
+
+
+            //Console.WriteLine("Enter the number of elements you want to push:");
+            //int n = int.Parse(Console.ReadLine());
+
+            //Console.WriteLine("Enter the elements:");
+            //for (int i = 0; i < n; i++)
+            //{
+            //    int value = int.Parse(Console.ReadLine());
+            //    stack.Push(value);
+            //}
+
+
+            //Console.WriteLine("Enter the target element to search:");
+            //int target = int.Parse(Console.ReadLine());
+
+
+            //int count = 0;
+            //bool found = false;
+
+            //foreach (int item in stack)
+            //{
+            //    count++;
+            //    if (item == target)
+            //    {
+            //        Console.WriteLine($"Target was found successfully and the count = {count}");
+            //        found = true;
+            //        break;
+            //    }
+            //}
+
+            //if (!found)
+            //{
+            //    Console.WriteLine("Target was not found");
+            //}
+            #endregion
+
+            #region Q09
+            int[] arr1 = { 1, 2, 3, 4, 4 };
+            int[] arr2 = { 10, 4, 4 };
+
+            List<int> result = FindIntersection(arr1, arr2);
+
+            Console.WriteLine("[" + string.Join(", ", result) + "]");
+        }
+
+        static List<int> FindIntersection(int[] arr1, int[] arr2)
+        {
+            List<int> result = new List<int>();
 
             
-            Console.WriteLine("Enter the number of elements you want to push:");
-            int n = int.Parse(Console.ReadLine());
-
-            Console.WriteLine("Enter the elements:");
-            for (int i = 0; i < n; i++)
+            Dictionary<int, int> freq = new Dictionary<int, int>();
+            foreach (int num in arr1)
             {
-                int value = int.Parse(Console.ReadLine());
-                stack.Push(value);
+                if (freq.ContainsKey(num))
+                    freq[num]++;
+                else
+                    freq[num] = 1;
             }
 
             
-            Console.WriteLine("Enter the target element to search:");
-            int target = int.Parse(Console.ReadLine());
-
-            
-            int count = 0;
-            bool found = false;
-
-            foreach (int item in stack)
+            foreach (int num in arr2)
             {
-                count++;
-                if (item == target)
+                if (freq.ContainsKey(num) && freq[num] > 0)
                 {
-                    Console.WriteLine($"Target was found successfully and the count = {count}");
-                    found = true;
-                    break;
+                    result.Add(num);
+                    freq[num]--; 
                 }
             }
 
-            if (!found)
-            {
-                Console.WriteLine("Target was not found");
-            }
+            return result;
             #endregion
         }
     }
