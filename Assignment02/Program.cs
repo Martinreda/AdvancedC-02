@@ -297,24 +297,75 @@ namespace Assignment02
             #endregion
 
             #region Q10
-            Console.WriteLine("Enter the number of elements:");
+            //Console.WriteLine("Enter the number of elements:");
+            //int n = int.Parse(Console.ReadLine());
+
+
+            //ArrayList arr = new ArrayList();
+            //Console.WriteLine("Enter the elements:");
+            //for (int i = 0; i < n; i++)
+            //{
+            //    arr.Add(int.Parse(Console.ReadLine()));
+            //}
+
+     
+            //Console.WriteLine("Enter the target sum:");
+            //int target = int.Parse(Console.ReadLine());
+
+
+            //FindSubList(arr, target);
+            #endregion
+
+            #region Q11
+          
+            Console.WriteLine("Enter the number of elements in the queue:");
             int n = int.Parse(Console.ReadLine());
 
+            Queue<int> queue = new Queue<int>();
 
-            ArrayList arr = new ArrayList();
             Console.WriteLine("Enter the elements:");
             for (int i = 0; i < n; i++)
             {
-                arr.Add(int.Parse(Console.ReadLine()));
+                queue.Enqueue(int.Parse(Console.ReadLine()));
             }
 
-     
-            Console.WriteLine("Enter the target sum:");
-            int target = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter K (number of elements to reverse):");
+            int k = int.Parse(Console.ReadLine());
 
+            Queue<int> result = ReverseFirstK(queue, k);
 
-            FindSubList(arr, target);
-            #endregion
+            Console.WriteLine("Output: [" + string.Join(", ", result) + "]");
         }
+
+        static Queue<int> ReverseFirstK(Queue<int> queue, int k)
+        {
+            if (k <= 0 || k > queue.Count)
+                return queue;
+
+            Stack<int> stack = new Stack<int>();
+
+       
+            for (int i = 0; i < k; i++)
+            {
+                stack.Push(queue.Dequeue());
+            }
+
+          
+            Queue<int> result = new Queue<int>();
+            while (stack.Count > 0)
+            {
+                result.Enqueue(stack.Pop());
+            }
+
+            
+            while (queue.Count > 0)
+            {
+                result.Enqueue(queue.Dequeue());
+            }
+
+            return result;
+     
+        #endregion
+    }
     }
 }
