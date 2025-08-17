@@ -19,7 +19,36 @@ namespace Assignment02
         //    }
         //}
         #endregion
-        static void Main(string[] args)
+        #region Q04 
+        static bool IsBalanced(string str)
+        {
+            Stack<char> st = new Stack<char>();
+
+            foreach (char c in str)
+            {
+                if (c == '(' || c == '[' || c == '{')
+                {
+                    st.Push(c);
+                }
+                else if (c == ')' || c == ']' || c == '}')
+                {
+                    if (st.Count == 0) return false;
+
+                    char top = st.Pop();
+
+                    if ((c == ')' && top != '(') ||
+                        (c == ']' && top != '[') ||
+                        (c == '}' && top != '{'))
+                    {
+                        return false; // mismatch
+                    }
+                }
+            }
+
+            return st.Count == 0;
+        }
+            #endregion
+            static void Main(string[] args)
         {
             #region Q01
 
@@ -95,40 +124,11 @@ namespace Assignment02
             #endregion
 
             #region Q04
-            static bool IsBalanced(string str)
-            {
-                Stack<char> st = new Stack<char>();
-
-                foreach (char c in str)
-                {
-                    if (c == '(' || c == '[' || c == '{')
-                    {
-                        st.Push(c);
-                    }
-                    else if (c == ')' || c == ']' || c == '}')
-                    {
-                        if (st.Count == 0) return false; 
-
-                        char top = st.Pop();
-
-                        if ((c == ')' && top != '(') ||
-                            (c == ']' && top != '[') ||
-                            (c == '}' && top != '{'))
-                        {
-                            return false; // mismatch
-                        }
-                    }
-                }
-
-                return st.Count == 0;
-            }
-
-            static void Main()
-            {
+          
                 string input = Console.ReadLine();
 
                 Console.WriteLine(IsBalanced(input) ? "Balanced" : "Not Balanced");
-            }
+          
             #endregion
 
 
