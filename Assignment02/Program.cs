@@ -49,20 +49,33 @@ namespace Assignment02
         //}
         #endregion
         #region Q05
-        static List<int> RemoveDuplicates(int[] arr)
-        {
-            List<int> unique = new List<int>();
+        //static List<int> RemoveDuplicates(int[] arr)
+        //{
+        //    List<int> unique = new List<int>();
 
-            foreach (int num in arr)
+        //    foreach (int num in arr)
+        //    {
+        //        if (!unique.Contains(num)) 
+        //        {
+        //            unique.Add(num);
+        //        }
+        //    }
+
+        //    return unique;
+        //}
+        #endregion
+        #region Q06
+        static void RemoveOdd(ArrayList arr)
+        {
+            for (int i = arr.Count - 1; i >= 0; i--)
             {
-                if (!unique.Contains(num)) 
+                if ((int)arr[i] % 2 != 0) 
                 {
-                    unique.Add(num);
+                    arr.RemoveAt(i);
                 }
             }
-
-            return unique;
         }
+
         #endregion
         static void Main(string[] args)
         {
@@ -148,14 +161,24 @@ namespace Assignment02
             #endregion
 
             #region Q05 
-            int[] arr = { 1, 2, 2, 3, 4, 4, 5 };
+            //int[] arr = { 1, 2, 2, 3, 4, 4, 5 };
 
-            List<int> result = RemoveDuplicates(arr);
+            //List<int> result = RemoveDuplicates(arr);
 
-            Console.WriteLine("Array without duplicates: " + string.Join(" ", result));
+            //Console.WriteLine("Array without duplicates: " + string.Join(" ", result));
             #endregion
 
+            #region Q06 
+            ArrayList arr = new ArrayList() { 1, 2, 3, 4, 5, 6, 7 };
 
+            Console.WriteLine("Original ArrayList: " + string.Join(" ", arr.ToArray()));
+
+            RemoveOdd(arr);
+
+            Console.WriteLine("After removing odds: " + string.Join(" ", arr.ToArray()));
+            #endregion
+
+            
         }
     }
 }
