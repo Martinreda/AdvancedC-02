@@ -170,9 +170,22 @@ namespace AdvancedC02
             #endregion
 
             #region Linked List
-            LinkedList<int> Numbers = new LinkedList<int>();
-            Numbers.AddFirst(1);
-            Numbers.AddAfter(Numbers.First , 2);
+            //LinkedList<int> Numbers = new LinkedList<int>();
+            //Numbers.AddFirst(1);
+            //Numbers.AddAfter(Numbers.First , 2);
+
+            #endregion
+
+            #region Stack 
+            Stack<int> Numbers = new Stack<int>();
+            Numbers.Push(1);
+            Numbers.Push(2);
+            Numbers.Push(3);
+            Console.WriteLine(Numbers.Pop());//3
+            //foreach(int number in Numbers)
+            //{
+            //    Console.WriteLine(number );
+            //}
 
             #endregion
         }
