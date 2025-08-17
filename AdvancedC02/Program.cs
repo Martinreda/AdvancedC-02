@@ -155,18 +155,25 @@ namespace AdvancedC02
             //{
             //    Console.WriteLine( number);
             //}
-            List<Employee> employees = new List<Employee>(2)
-            {
-                new Employee (){Id = 10 , Name = "Martin" , Salaray = 10000},
-                new Employee (){Id = 15 , Name = "Ma" , Salaray = 150000}
-            };
-            int Index = employees.BinarySearch(new Employee()
-            {
-                Id = 10,
-                Name = "mar",
-                Salaray = 10000
-            });
-            Console.WriteLine(Index);
+            //List<Employee> employees = new List<Employee>(2)
+            //{
+            //    new Employee (){Id = 10 , Name = "Martin" , Salaray = 10000},
+            //    new Employee (){Id = 15 , Name = "Ma" , Salaray = 150000}
+            //};
+            //int Index = employees.BinarySearch(new Employee()
+            //{
+            //    Id = 10,
+            //    Name = "mar",
+            //    Salaray = 10000
+            //});
+            //Console.WriteLine(Index);
+            #endregion
+
+            #region Linked List
+            LinkedList<int> Numbers = new LinkedList<int>();
+            Numbers.AddFirst(1);
+            Numbers.AddAfter(Numbers.First , 2);
+
             #endregion
         }
     }
