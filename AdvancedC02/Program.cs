@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Demo;
+using System.Collections;
 
 namespace AdvancedC02
 {
@@ -133,19 +134,40 @@ namespace AdvancedC02
             #endregion
 
             #region List [Continue]
-            List<int> Numbers = new List<int>() { 1, 2, 3, 4 };
+            //List<int> Numbers = new List<int>() { 1, 2, 3, 4 };
 
-            //Numbers[2] = 100; // Use Indexer As Setter
-            //Console.WriteLine(Numbers[2]); // Use Indexer As Getter
+            ////Numbers[2] = 100; // Use Indexer As Setter
+            ////Console.WriteLine(Numbers[2]); // Use Indexer As Getter
 
-            Numbers[4] = 5; // Use Indexer Fo Adding => invalied
+            //Numbers[4] = 5; // Use Indexer Fo Adding => invalied
 
 
             #endregion
 
+            #region List Methods:
+            //List<int> Numbers = new List<int>(4) { 1,2,3,4};
+            //int Index = Numbers.BinarySearch(2);
+            //Console.WriteLine( Index );
+            //Numbers.Insert(0, 100);
+            //Numbers.InsertRange(1, new int[] { 101, 102 });
 
+            //foreach(int number in Numbers)
+            //{
+            //    Console.WriteLine( number);
+            //}
+            List<Employee> employees = new List<Employee>(2)
+            {
+                new Employee (){Id = 10 , Name = "Martin" , Salaray = 10000},
+                new Employee (){Id = 15 , Name = "Ma" , Salaray = 150000}
+            };
+            int Index = employees.BinarySearch(new Employee()
+            {
+                Id = 10,
+                Name = "mar",
+                Salaray = 10000
+            });
+            Console.WriteLine(Index);
+            #endregion
         }
     }
 }
-    
-
