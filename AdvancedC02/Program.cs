@@ -177,16 +177,31 @@ namespace AdvancedC02
             #endregion
 
             #region Stack 
-            Stack<int> Numbers = new Stack<int>();
-            Numbers.Push(1);
-            Numbers.Push(2);
-            Numbers.Push(3);
-            Console.WriteLine(Numbers.Pop());//3
-            //foreach(int number in Numbers)
-            //{
-            //    Console.WriteLine(number );
-            //}
+            //Stack<int> Numbers = new Stack<int>();
+            //Numbers.Push(1);
+            //Numbers.Push(2);
+            //Numbers.Push(3);
+            //Console.WriteLine(Numbers.Pop());//3
+            ////foreach(int number in Numbers)
+            ////{
+            ////    Console.WriteLine(number );
+            ////}
 
+            #endregion
+
+            #region Queue 
+            Queue<int> Queue = new Queue<int>();
+            Queue.Enqueue(1);
+            Queue.Enqueue(2);
+            Queue.Enqueue(3);
+            Console.WriteLine(Queue.Dequeue());//1
+            Console.WriteLine(Queue.Dequeue());//2
+            Console.WriteLine(Queue.Dequeue());//3
+            Console.WriteLine(Queue.Dequeue());//exeption
+            foreach (int number in Queue)
+            {
+                Console.WriteLine(number);
+            }
             #endregion
         }
     }
