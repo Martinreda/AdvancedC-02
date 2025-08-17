@@ -20,35 +20,51 @@ namespace Assignment02
         //}
         #endregion
         #region Q04 
-        static bool IsBalanced(string str)
+        //static bool IsBalanced(string str)
+        //{
+        //    Stack<char> st = new Stack<char>();
+
+        //    foreach (char c in str)
+        //    {
+        //        if (c == '(' || c == '[' || c == '{')
+        //        {
+        //            st.Push(c);
+        //        }
+        //        else if (c == ')' || c == ']' || c == '}')
+        //        {
+        //            if (st.Count == 0) return false;
+
+        //            char top = st.Pop();
+
+        //            if ((c == ')' && top != '(') ||
+        //                (c == ']' && top != '[') ||
+        //                (c == '}' && top != '{'))
+        //            {
+        //                return false; // mismatch
+        //            }
+        //        }
+        //    }
+
+        //    return st.Count == 0;
+        //}
+        #endregion
+        #region Q05
+        static List<int> RemoveDuplicates(int[] arr)
         {
-            Stack<char> st = new Stack<char>();
+            List<int> unique = new List<int>();
 
-            foreach (char c in str)
+            foreach (int num in arr)
             {
-                if (c == '(' || c == '[' || c == '{')
+                if (!unique.Contains(num)) 
                 {
-                    st.Push(c);
-                }
-                else if (c == ')' || c == ']' || c == '}')
-                {
-                    if (st.Count == 0) return false;
-
-                    char top = st.Pop();
-
-                    if ((c == ')' && top != '(') ||
-                        (c == ']' && top != '[') ||
-                        (c == '}' && top != '{'))
-                    {
-                        return false; // mismatch
-                    }
+                    unique.Add(num);
                 }
             }
 
-            return st.Count == 0;
+            return unique;
         }
-            #endregion
-            static void Main(string[] args)
+        #endregion
+        static void Main(string[] args)
         {
             #region Q01
 
@@ -124,11 +140,19 @@ namespace Assignment02
             #endregion
 
             #region Q04
-          
-                string input = Console.ReadLine();
 
-                Console.WriteLine(IsBalanced(input) ? "Balanced" : "Not Balanced");
-          
+            //string input = Console.ReadLine();
+
+            //Console.WriteLine(IsBalanced(input) ? "Balanced" : "Not Balanced");
+
+            #endregion
+
+            #region Q05 
+            int[] arr = { 1, 2, 2, 3, 4, 4, 5 };
+
+            List<int> result = RemoveDuplicates(arr);
+
+            Console.WriteLine("Array without duplicates: " + string.Join(" ", result));
             #endregion
 
 
