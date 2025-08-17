@@ -179,18 +179,57 @@ namespace Assignment02
             #endregion
 
             #region Q07
-            Queue<object> queue = new Queue<object>();
+            //Queue<object> queue = new Queue<object>();
 
         
-            queue.Enqueue(1);          
-            queue.Enqueue("Apple");    
-            queue.Enqueue(5.28);       
+            //queue.Enqueue(1);          
+            //queue.Enqueue("Apple");    
+            //queue.Enqueue(5.28);       
 
             
-            Console.WriteLine("Queue elements:");
-            foreach (var item in queue)
+            //Console.WriteLine("Queue elements:");
+            //foreach (var item in queue)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            #endregion
+
+            #region Q08
+            Stack<int> stack = new Stack<int>();
+
+            
+            Console.WriteLine("Enter the number of elements you want to push:");
+            int n = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter the elements:");
+            for (int i = 0; i < n; i++)
             {
-                Console.WriteLine(item);
+                int value = int.Parse(Console.ReadLine());
+                stack.Push(value);
+            }
+
+            
+            Console.WriteLine("Enter the target element to search:");
+            int target = int.Parse(Console.ReadLine());
+
+            
+            int count = 0;
+            bool found = false;
+
+            foreach (int item in stack)
+            {
+                count++;
+                if (item == target)
+                {
+                    Console.WriteLine($"Target was found successfully and the count = {count}");
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found)
+            {
+                Console.WriteLine("Target was not found");
             }
             #endregion
         }
