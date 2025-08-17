@@ -169,16 +169,30 @@ namespace Assignment02
             #endregion
 
             #region Q06 
-            ArrayList arr = new ArrayList() { 1, 2, 3, 4, 5, 6, 7 };
+            //ArrayList arr = new ArrayList() { 1, 2, 3, 4, 5, 6, 7 };
 
-            Console.WriteLine("Original ArrayList: " + string.Join(" ", arr.ToArray()));
+            //Console.WriteLine("Original ArrayList: " + string.Join(" ", arr.ToArray()));
 
-            RemoveOdd(arr);
+            //RemoveOdd(arr);
 
-            Console.WriteLine("After removing odds: " + string.Join(" ", arr.ToArray()));
+            //Console.WriteLine("After removing odds: " + string.Join(" ", arr.ToArray()));
             #endregion
 
+            #region Q07
+            Queue<object> queue = new Queue<object>();
+
+        
+            queue.Enqueue(1);          
+            queue.Enqueue("Apple");    
+            queue.Enqueue(5.28);       
+
             
+            Console.WriteLine("Queue elements:");
+            foreach (var item in queue)
+            {
+                Console.WriteLine(item);
+            }
+            #endregion
         }
     }
 }
