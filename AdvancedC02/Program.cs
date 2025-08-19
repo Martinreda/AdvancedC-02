@@ -1,10 +1,208 @@
-﻿namespace AdvancedC02
+﻿using Demo;
+using System.Collections;
+
+namespace AdvancedC02
 {
     internal class Program
     {
+        public static int SumofArrayList(ArrayList arrayList)
+        {
+            int sum = 0;
+            if (arrayList is not null)
+            {
+                for (int i = 0; i < arrayList.Count; i++)
+                {
+                    sum = sum + (int?)arrayList[i] ?? 0;
+                }
+            }
+            return sum;
+        }
+        public static int SumOfList(List<int> Numbers)
+        {
+            int Sum = 0;
+            if (Numbers is not null)
+            {
+                for (int i = 0; i < Numbers.Count; i++)
+                {
+                    Sum = Sum + Numbers[i];
+                }
+
+            }
+            return Sum;
+        }
+
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            #region Non_Generic Collections [ArrayList]
+            //#region Part 01 
+            //ArrayList arraylist = new ArrayList();
+
+            //Console.WriteLine( $"Count : {arraylist.Count} :  Capacity : {arraylist.Capacity}");
+
+            ////function on array list 
+            //arraylist.Add(1);
+            //arraylist.Add(2);
+            //arraylist.AddRange(new int[] {3,4});
+            //Console.WriteLine($"Count : {arraylist.Count} :  Capacity : {arraylist.Capacity}");
+
+            //arraylist.Add(5);
+            //Console.WriteLine($"Count : {arraylist.Count} :  Capacity : {arraylist.Capacity}");
+            //arraylist.TrimToSize();
+            ////realese|deallcote |free | dlete unused bytes = 12 bytes
+            //Console.WriteLine( "After tirming");
+            //Console.WriteLine($"Count : {arraylist.Count} :  Capacity : {arraylist.Capacity}");
+            #endregion
+
+            #region Part 02 
+            //ArrayList arraylist = new ArrayList(5);
+
+            //Console.WriteLine($"Count : {arraylist.Count} :  Capacity : {arraylist.Capacity}");
+
+            ////function on array list 
+            //arraylist.Add(1);
+            //arraylist.Add(2);
+            //arraylist.AddRange(new int[] { 3, 4 , 5});
+            //Console.WriteLine($"Count : {arraylist.Count} :  Capacity : {arraylist.Capacity}");
+            //arraylist.Add(6);
+            //Console.WriteLine($"Count : {arraylist.Count} :  Capacity : {arraylist.Capacity}");
+
+            #endregion
+
+            #region Part 03 
+            //ArrayList arraylist = new ArrayList(5);
+
+
+            //arraylist.Add(1); // casting from int [Value type ] To object [REf Type ] 
+            //                  //Boxing
+            //arraylist.Add(2);
+            //arraylist.Add(3);
+            //arraylist.Add(4);
+            //arraylist.Add("Martin");//compiler cannot enforce type safty 
+            //int result = SumofArrayList(arraylist);
+            //Console.WriteLine( $"reslut = {result}");
+            #endregion
+
+            #region Genaric Collection List<T> 
+
+            #region Part 01 
+            //List<int> list = new List<int>();
+
+            //Console.WriteLine($"Count : {list.Count} :  Capacity : {arraylist.Capacity}");
+
+            ////function on array list 
+            //list.Add(1);
+            //list.Add(2);
+            //list.AddRange(new int[] { 3, 4 });
+            //Console.WriteLine($"Count : {list.Count} :  Capacity : {list.Capacity}");
+
+            //list.Add(5);
+            //Console.WriteLine($"Count : {list.Count} :  Capacity : {list.Capacity}");
+            //list.TrimExcess();
+            ////realese|deallcote |free | dlete unused bytes = 12 bytes
+            //Console.WriteLine("After tirming");
+            //Console.WriteLine($"Count : {list.Count} :  Capacity : {list.Capacity}");
+            #endregion
+
+            #region Part 02 
+            //List<int> list = new List<int>(5);
+
+            //Console.WriteLine($"Count : {list.Count} :  Capacity : {list.Capacity}");
+
+            ////function on array list 
+            //list.Add(1);
+            //list.Add(2);
+            //list.AddRange(new int[] { 3, 4, 5 });
+            //Console.WriteLine($"Count : {list.Count} :  Capacity : {list.Capacity}");
+            //list.Add(6);
+            //Console.WriteLine($"Count : {list.Count} :  Capacity : {list.Capacity}");
+
+            #endregion
+
+            #region Part 03 
+            //List<int> Numbers = new List<int>(5);
+
+
+            //Numbers.Add(1); // casting from int [Value type ] To object [REf Type ] 
+            //                //Boxing
+            //Numbers.Add(2);
+            //Numbers.Add(3);
+            //Numbers.Add(4);
+            ////Numbers.Add("Martin");//compiler enforce type safty 
+            //int result = SumOfList(Numbers);
+            //Console.WriteLine($"reslut = {result}");
+            #endregion
+            #endregion
+
+            #region List [Continue]
+            //List<int> Numbers = new List<int>() { 1, 2, 3, 4 };
+
+            ////Numbers[2] = 100; // Use Indexer As Setter
+            ////Console.WriteLine(Numbers[2]); // Use Indexer As Getter
+
+            //Numbers[4] = 5; // Use Indexer Fo Adding => invalied
+
+
+            #endregion
+
+            #region List Methods:
+            //List<int> Numbers = new List<int>(4) { 1,2,3,4};
+            //int Index = Numbers.BinarySearch(2);
+            //Console.WriteLine( Index );
+            //Numbers.Insert(0, 100);
+            //Numbers.InsertRange(1, new int[] { 101, 102 });
+
+            //foreach(int number in Numbers)
+            //{
+            //    Console.WriteLine( number);
+            //}
+            //List<Employee> employees = new List<Employee>(2)
+            //{
+            //    new Employee (){Id = 10 , Name = "Martin" , Salaray = 10000},
+            //    new Employee (){Id = 15 , Name = "Ma" , Salaray = 150000}
+            //};
+            //int Index = employees.BinarySearch(new Employee()
+            //{
+            //    Id = 10,
+            //    Name = "mar",
+            //    Salaray = 10000
+            //});
+            //Console.WriteLine(Index);
+            #endregion
+
+            #region Linked List
+            //LinkedList<int> Numbers = new LinkedList<int>();
+            //Numbers.AddFirst(1);
+            //Numbers.AddAfter(Numbers.First , 2);
+
+            #endregion
+
+            #region Stack 
+            //Stack<int> Numbers = new Stack<int>();
+            //Numbers.Push(1);
+            //Numbers.Push(2);
+            //Numbers.Push(3);
+            //Console.WriteLine(Numbers.Pop());//3
+            ////foreach(int number in Numbers)
+            ////{
+            ////    Console.WriteLine(number );
+            ////}
+
+            #endregion
+
+            #region Queue 
+            Queue<int> Queue = new Queue<int>();
+            Queue.Enqueue(1);
+            Queue.Enqueue(2);
+            Queue.Enqueue(3);
+            Console.WriteLine(Queue.Dequeue());//1
+            Console.WriteLine(Queue.Dequeue());//2
+            Console.WriteLine(Queue.Dequeue());//3
+            Console.WriteLine(Queue.Dequeue());//exeption
+            foreach (int number in Queue)
+            {
+                Console.WriteLine(number);
+            }
+            #endregion
         }
     }
 }
